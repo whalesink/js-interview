@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-demo.js"></script>
+</head>
+<body>
+    <p id="p1">这是一段文字 1</p>
+    <p>这是一段文字 2</p>
+    <p>这是一段文字 3</p>
+    <script>
+
+        const p = new jQuery('p');
+
+        console.log(p);                 // jQuery{}
+
+        console.log(p.get(1));          // <p>这是一段文字 2</p>
+
+
+        p.each((el) => {
+            console.log(el.innerText);  // 这是一段文字x * 3
+        });
+
+
+        p.on('click', function(){
+            alert(this.innerText);      // 
+        })
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -19,6 +19,7 @@ class jQuery {
         return this[index];
     }
 
+    // 
     each(fn){
         for(let i = 0; i < this.length; i++){
             const elem = this[i];
