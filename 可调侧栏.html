@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            height: 500px;
+            user-select: none;
+        }
+
+        .scalable {
+            background-color: #eee;
+            position: relative;
+            min-width: 100px;
+        }
+
+        .main {
+            background-color: pink;
+            flex-grow: 1;
+        }
+
+        .separator {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 14px;
+            height: 100%;
+            background-color: #000;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+            cursor: col-resize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scalable .separator i {
+            display: inline-block;
+            height: 14px;
+            width: 1px;
+            background-color: #e9e9e9;
+            margin: 0 1px;
+        }
+
+        .scalable .content {
+            padding-right: 34px;
+        }
+
+        .scalable .content img {
+            display: block;
+            max-width: 100%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scalable">
+        <div class="content">
+            <img src="https://codingstartup.com/images/logo.svg" alt="">
+        </div>
+        <div class="separator">
+            <i></i><i></i>
+        </div>
+    </div>
+    <div class="main">
+        <div class="content">
+            You are Welcome.
+        </div>
+    </div>
+    <script>
+        var startX, startWidth = localStorage.getItem('scalable_width') || getScalableWidth();
+
+        document.querySelector(".separator").addEventListener("mousedown", startDrag)
+
+        document.querySelector('.scalable').style.width = startWidth + 'px'
+
+        function startDrag(e) {
+            startX = e.clientX
+            startWidth = getScalableWidth()
+
+            console.log(startWidth);
+            // 在html根元素上监听
+            document.documentElement.addEventListener("mousemove", onDrag)
+            document.documentElement.addEventListener("mouseup", stopDrag)
+
+        }
+
+        function onDrag(e) {
+            let newWidth = startWidth + e.clientX - startX
+            document.querySelector('.scalable').style.width = newWidth + 'px'
+        }
+
+        function stopDrag(e) {
+            localStorage.setItem('scalable_width', getScalableWidth())
+            document.documentElement.removeEventListener('mousemove', onDrag)
+            document.documentElement.removeEventListener('mouseup', stopDrag)
+        }
+
+        function getScalableWidth() {
+            return parseInt(window.getComputedStyle(document.querySelector('.scalable')).width, 10)
+        }
+    </script>
+</body>
+
+</html>
