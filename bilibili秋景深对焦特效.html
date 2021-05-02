@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            --offect: 0px;
+            --blur: 2px;
+        }
+
+        header>div>img {
+            display: block;
+            width: 110%;
+            height: 100%;
+            object-fit: cover;
+
+            transform: translateX(var(--offset));
+            filter: blur(var(--blur));
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div><img src="./assets/bilibili-autumn-1.png" alt=""></div>
+        <div><img src="./assets/bilibili-autumn-2.png" alt=""></div>
+        <div><img src="./assets/bilibili-autumn-3.webp" alt=""></div>
+        <div><img src="./assets/bilibili-autumn-4.webp" alt=""></div>
+        <div><img src="./assets/bilibili-autumn-5.webp" alt=""></div>
+        <div><img src="./assets/bilibili-autumn-6.webp" alt=""></div>
+    </header>
+    <script>
+
+
+        const images = document.querySelectorAll('header > div > img');
+
+        document.querySelector('header').addEventListener('mousemove', (e) => {
+            // 鼠标相对图片移动的百分比
+            let percentage = e.clientX / window.outerWidth;
+            // 分层图片的水平偏移量
+            let offset = 10 * percentage;
+            // 模糊度
+            let blur = 20;
+
+            for (let [index, image] of images.entries()) {
+                // 越靠后的图层水平偏移量越大
+                offset *= 1.3;
+                // 分层模糊度计算公式 y=(x^2)*20
+                let blurValue = Math.pow((index / images.length - percentage), 2) * blur;
+
+                image.style.setProperty('--offset', `${offset}px`);
+                image.style.setProperty('--blur', `${blurValue}px`);
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

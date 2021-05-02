@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css"
+        integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q=="
+        crossorigin="anonymous" />
+    <title>Document</title>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        .title {
+            @apply text-xl font-bold mb-2 group-hover:text-white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto my-4">
+        <img src="https://cdn.pixabay.com/photo/2020/07/06/01/33/sky-5375005_960_720.jpg" class="rounded-xl shadow-lg">
+
+        <div class="my-8 border rounded shadow-lg sm:flex sm:flex-wrap border-b-0 overflow-hidden">
+            <div class="p-6 border-b sm:w-1/2 sm:border-r md:w-1/4 hover:bg-gray-800 group">
+                <h2 class="text-xl font-bold mb-2 group-hover:text-white">Lorem ipsum dolor sit amet</h2>
+                <p class="text-gray-500 group-hover:text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="p-6 border-b sm:w-1/2 md:w-1/4 md:border-r border-b-0 hover:bg-gray-800 group">
+                <h2 class="text-xl font-bold mb-2 group-hover:text-white">Ut enim ad minim veniam</h2>
+                <p class="text-gray-500 group-hover:text-white">
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="p-6 border-b sm:w-1/2 sm:border-r sm:border-b-0 md:w-1/4 hover:bg-gray-800 group">
+                <h2 class="text-xl font-bold mb-2 group-hover:text-white">Duis aute irure dolor in reprehenderit</h2>
+                <p class="text-gray-500 group-hover:text-white">
+                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+            <div class="p-6 sm:w-1/2 md:w-1/4 hover:bg-gray-800 group">
+                <h2 class="text-xl font-bold mb-2 group-hover:text-white">sint occaecat cupidatat non proident</h2>
+                <p class="text-gray-500 group-hover:text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Excepteur
+                    , sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

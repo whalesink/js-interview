@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css"
+        integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q=="
+        crossorigin="anonymous" />
+    <title>Document</title>
+    <style>
+        #ultra:checked~#tab-xiaomi-ultra {
+            display: flex;
+        }
+
+        #fold:checked~#tab-xiaomi-fold {
+            display: flex;
+        }
+
+        #note:checked~#tab-xiaomi-note {
+            display: flex;
+        }
+
+        #ultra:checked~.nav label[for="ultra"] span {
+            background-color: #e5e7eb;
+        }
+
+        #fold:checked~.nav label[for="fold"] span {
+            background-color: #e5e7eb;
+        }
+
+        #note:checked~.nav label[for="note"] span {
+            background-color: #e5e7eb;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto">
+        <input type="radio" name='tab' id="ultra" checked>
+        <input type="radio" name='tab' id="fold">
+        <input type="radio" name='tab' id="note">
+
+        <div class="my-4 nav">
+            <label for="ultra">
+                <span class="py-2 px-5 rounded-full inline-block">xiaomi 11 Ultra</span>
+            </label>
+            <label for="fold">
+                <span class="py-2 px-5 rounded-full inline-block">MIX FOLD</span>
+            </label>
+            <label for="note">
+                <span class="py-2 px-5 rounded-full inline-block">Note 9 4G</span>
+            </label>
+        </div>
+
+        <div class="p-8 rounded-xl shadow-md hidden" id="tab-xiaomi-ultra">
+            <div class="flex">
+                <div class="w-3/5 flex flex-col justify-center">
+                    <div>
+                        <h2 class="text-2xl font-bold">xiaomi 11 Ultra</h2>
+                        <p class="mt-3">一次探索，一个迎接光的窗口；
+                            一次致敬，一个规则外的新物种；
+                            一款倾尽心血的专业影像之作，
+                            在此。</p>
+                        <button
+                            class="text-lg bg-black rounded-full shadow py-2 px-5 text-white mt-6 transform hover:scale-110 hover:bg-blue-600 transition">Shop
+                            Now</button>
+                    </div>
+                </div>
+                <div class="w-2/5">
+                    <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1617008568.53329550.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 rounded-xl shadow-md hidden" id="tab-xiaomi-fold">
+            <div class="flex">
+                <div class="w-3/5 flex flex-col justify-center">
+                    <div>
+                        <h2 class="text-2xl font-bold">MIX FOLD</h2>
+                        <p class="mt-3">这是你的第一台小米折叠屏手机
+                            是首个小米智能工厂独立研发制造的手机
+                            是首个使用澎湃C1专业影像芯片的手机
+                            这就是 MIX FOLD</p>
+                        <button
+                            class="text-lg bg-black rounded-full shadow py-2 px-5 text-white mt-6 transform hover:scale-110 hover:bg-blue-600 transition">Shop
+                            Now</button>
+                    </div>
+                </div>
+                <div class="w-2/5">
+                    <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1617098700.31877799.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 rounded-xl shadow-md hidden" id="tab-xiaomi-note">
+            <div class="flex">
+                <div class="w-3/5 flex flex-col justify-center">
+                    <div>
+                        <h2 class="text-2xl font-bold">Note 9 4G</h2>
+                        <p class="mt-3">机身有「星芒」，眼神里有光
+                            背壳放射纹「星芒」设计，形成丝绸般的光泽质感，不同的光线角度，呈现绵密细致的视觉变化。</p>
+                        <button
+                            class="text-lg bg-black rounded-full shadow py-2 px-5 text-white mt-6 transform hover:scale-110 hover:bg-blue-600 transition">Shop
+                            Now</button>
+                    </div>
+                </div>
+                <div class="w-2/5">
+                    <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606289236.82855212.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

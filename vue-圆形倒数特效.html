@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./framework/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"
+        integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw=="
+        crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
         .circle {
@@ -13,12 +16,12 @@
             transform-origin: 50% 50%;
         }
 
-        #countdown{
+        #countdown {
             display: inline-block;
             position: relative;
         }
 
-        span{
+        span {
             position: absolute;
             left: 50%;
             top: 50%;
@@ -33,26 +36,12 @@
     <div id="app">
         <div id="countdown">
             <svg :width="size" :height="size">
-                <circle 
-                    fill="transparent" 
-                    :stroke-width="stroke" 
-                    class="circle"
-                    stroke="#eee" 
-                    :r="radius" 
-                    :cx="circleOffset" 
-                    :cy="circleOffset">
+                <circle fill="transparent" :stroke-width="stroke" class="circle" stroke="#eee" :r="radius"
+                    :cx="circleOffset" :cy="circleOffset">
                 </circle>
-                <circle 
-                    fill="transparent" 
-                    :stroke-width="stroke" 
-                    class="circle" 
-                    stroke="#000" 
-                    :r="radius" 
-                    :cx="circleOffset" 
-                    :cy="circleOffset"
-                    :stroke-dasharray="circumference" 
-                    :stroke-dashoffset="progress" 
-                    stroke-linecap="round">
+                <circle fill="transparent" :stroke-width="stroke" class="circle" stroke="#000" :r="radius"
+                    :cx="circleOffset" :cy="circleOffset" :stroke-dasharray="circumference"
+                    :stroke-dashoffset="progress" stroke-linecap="round">
                 </circle>
             </svg>
             <span>{{countdown}}</span>
@@ -87,23 +76,23 @@
                 },
 
                 // 返回stroke-dashoffset
-                progress(){
+                progress() {
                     return this.circumference - this.circumference * this.percentage / 100;
                 },
 
                 // 返回当前剩余秒数
-                countdown(){
+                countdown() {
                     return Math.ceil(this.seconds * this.percentage / 100)
                 }
             },
 
-            methods:{
-                animate(){
-                    this.timer = setInterval(()=>{
-                        this.percentage -= 1/10;
-                        if(this.percentage<=0){
+            methods: {
+                animate() {
+                    this.timer = setInterval(() => {
+                        this.percentage -= 1 / 10;
+                        if (this.percentage <= 0) {
                             clearInterval(this.timer);
-                            this.percentage=100
+                            this.percentage = 100
                         }
                     }, this.seconds * 1000 / 100 / 10)
                 }
